@@ -1,6 +1,6 @@
-# Testable defp
+# Testable `defp`
 
-Change defp to def when mix test
+Change `defp` to `def` when `mix test`
 
 ## Installation
 
