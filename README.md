@@ -1,6 +1,6 @@
-# TestableDefp
+# Testable defp
 
-**TODO: Add description**
+Make `defp` to `def` when `mix test`.
 
 ## Installation
 
@@ -15,7 +15,23 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/testable_defp>.
+## Example
 
+```elixir
+defmodule TestableDefpTest do
+  use ExUnit.Case
+  doctest TestableDefp
+
+  defmodule Subject do
+    use TestableDefp
+
+    defp add(a, b) do
+      a + b
+    end
+  end
+
+  test "defp is def for test" do
+    assert 3 == Subject.add(1, 2)
+  end
+end
+```
